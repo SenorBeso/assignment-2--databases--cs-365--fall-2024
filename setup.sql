@@ -9,9 +9,18 @@ SET @key_str = UNHEX(SHA2('secret password', 256));
 SET @init_vector = RANDOM_BYTES(16);
 
 CREATE TABLE IF NOT EXISTS user (
-  id          SMALLINTNOT NULL AUTO_INCREMENT,
-  email       VARCHAR(100)    NOT NULL,
-  first_name  VARCHAR(75)     NOT NULL,
-  last_name   VARCHAR(75)     NOT NULL, PRIMARY KEY (id)
+  id          SMALLINT        NOT NULL AUTO_INCREMENT,
+  email       VARCHAR(64)    NOT NULL,
+  first_name  VARCHAR(64)     NOT NULL,
+  last_name   VARCHAR(64)     NOT NULL,
+  PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS  website (
+  id          SMALLINT        NOT NULL AUTO_INCREMENT,
+  website     VARCHAR(64)     NOT NULL,
+  site_url    VARCHAR(256)    NOT NULL,
+  PRIMARY KEY (id)
+);
+
 
