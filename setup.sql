@@ -10,17 +10,24 @@ SET @init_vector = RANDOM_BYTES(16);
 
 CREATE TABLE IF NOT EXISTS user (
   id          SMALLINT        NOT NULL AUTO_INCREMENT,
-  email       VARCHAR(64)    NOT NULL,
+  email       VARCHAR(64)     NOT NULL,
   first_name  VARCHAR(64)     NOT NULL,
   last_name   VARCHAR(64)     NOT NULL,
   PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS  website (
+CREATE TABLE IF NOT EXISTS website (
   id          SMALLINT        NOT NULL AUTO_INCREMENT,
   website     VARCHAR(64)     NOT NULL,
   site_url    VARCHAR(256)    NOT NULL,
   PRIMARY KEY (id)
 );
 
-
+CREATE TABLE IF NOT EXISTS account_info (
+  id                  SMALLINT        NOT NULL AUTO_INCREMENT,
+  account_username    VARCHAR(64)     NOT NULL,
+  account_password    VARCHAR(128)    NOT NULL,
+  comment             VARCHAR(1024)   NOT NULL,
+  account_creation    DATETIME        NOT NULL,
+  PRIMARY KEY (id)
+);
