@@ -1,12 +1,15 @@
 
 --command 1 - create a new entry (the NOW sets timestamp to current time)
-INSERT INTO account_info (account_username, account_password, comment, account_creation)
-VALUES (
-    "newUser",
-    AES_ENCRYPT("NewPassword123", @key_str, @init_vector),
-    "New account to test command 1.",
-    NOW()
-);
+INSERT INTO user
+VALUES
+  (0,"jkiss@gmail.com", "Jonas", "Kiss");
+INSERT INTO website
+VALUES
+  (0,"Sweetwater", "https://www.sweetwater.com");
+INSERT INTO account_info
+VALUES
+  (0,"jonasKissGuitars", AES_ENCRYPT("guitarHero", @key_str, @init_vector), "His Music Store Account", NOW());
+
 
 --command 2 - get password associated with one of the urls
 SELECT
@@ -49,5 +52,13 @@ SET account_password = AES_ENCRYPT('newPasswordCommand5', @key_str, @init_vector
 WHERE CAST(AES_DECRYPT(account_password, @key_str, @init_vector) AS CHAR) = 'G00Gl3';
 
 --command 6 - remove a tuple based on a url
+DELETE account_info, website
+FROM account_info
+JOIN website ON account_info.id = website.id
+WHERE website.site_url = 'https://www.github.com';
 
 --command 7 - remove a tuple based on a password
+DELETE account_info, website
+FROM account_info
+JOIN website ON account_info.id = website.id
+WHERE CAST(AES_DECRYPT(account_info.account_password, @key_str, @init_vector) AS CHAR) = 'metalHead4Life';
