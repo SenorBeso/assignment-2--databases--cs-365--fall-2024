@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS account_info (
 );
 
 INSERT INTO user
+VALUES
 (0,"aidenkiss@gmail.com", "Aiden", "Kiss"),
 (0,"aidenkiss@gmail.com", "Aiden", "Kiss"),
 (0,"aidenkiss@gmail.com", "Aiden", "Kiss"),
@@ -45,6 +46,7 @@ INSERT INTO user
 (0,"kiss@hartford.edu", "Aiden", "Kiss");
 
 INSERT INTO website
+VALUES
 (0,"Google", "https://google.com"),
 (0,"Steam","https://store.steampowered.com"),
 (0,"Spotify","https://open.spotify.com"),
@@ -57,6 +59,7 @@ INSERT INTO website
 (0,"UHart Blackboard","https://blackboard.hartford.edu/ultra/course");
 
 INSERT INTO account_info
+VALUES
 (0,"aidenk7",AES_ENCRYPT("G00Gl3", @key_str, @init_vector), "My School Account", '2008-07-24 0:00:00'),
 (0,"kissAiden",AES_ENCRYPT("RGBisOverated", @key_str, @init_vector), "My Steam gaming account", '2010-05-24 0:00:00'),
 (0,"aidenk7",AES_ENCRYPT("metalHead4Life", @key_str, @init_vector), "My music account", '2017-01-12 0:00:00'),
