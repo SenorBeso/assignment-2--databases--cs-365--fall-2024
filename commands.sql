@@ -8,3 +8,14 @@ VALUES (
     NOW()
 );
 
+--command 2
+SELECT
+    CAST(AES_DECRYPT(account_info.account_password, @key_str, @init_vector) AS CHAR) AS decrypted_password
+FROM
+    account_info
+JOIN
+    website
+ON
+    account_info.id = website.id
+WHERE
+    website.site_url = "https://www.microsoft.com/en-us/";
