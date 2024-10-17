@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS `passwords`;
+DROP DATABASE IF EXISTS passwords;
 CREATE DATABASE `passwords` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-USE `passwords`;
+USE passwords;
 
 SET block_encryption_mode = 'aes-256-cbc';
 SET @key_str = UNHEX(SHA2('secret password', 256));
@@ -54,5 +54,6 @@ INSERT INTO account_info (account_username, account_password, comment, account_c
 ("aidenk7", AES_ENCRYPT("iwannajob", @key_str, @init_vector), "My LinkedIn profile", '2023-11-10 01:00:00'),
 ("AidenKiss", AES_ENCRYPT("$money$", @key_str, @init_vector), "My Bank Account", '2016-10-04 04:00:00'),
 ("aidenk7", AES_ENCRYPT("idontusethisapp", @key_str, @init_vector), "My Snap Account", '2020-07-30 00:00:00'),
+("aidenkIG", AES_ENCRYPT("ihatepostingonIG", @key_str, @init_vector), "My IG Account", '2022-06-26 00:00:00'),
 ("SenorBeso", AES_ENCRYPT("code", @key_str, @init_vector), "My Github Account", '2022-10-14 00:00:00'),
 ("aidenk7", AES_ENCRYPT("aidenUHART", @key_str, @init_vector), "My School Account", '2022-08-24 00:00:00');

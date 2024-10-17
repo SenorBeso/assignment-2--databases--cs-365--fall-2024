@@ -2,7 +2,7 @@
 --command 1 - create a new entry (the NOW sets timestamp to current time)
 INSERT INTO account_info (account_username, account_password, comment, account_creation)
 VALUES (
-    "newUser123",
+    "newUser",
     AES_ENCRYPT("NewPassword123", @key_str, @init_vector),
     "New account to test command 1.",
     NOW()
@@ -44,6 +44,9 @@ SET website.site_url = 'https://www.command4-google-url.com'
 WHERE CAST(AES_DECRYPT(account_info.account_password, @key_str, @init_vector) AS CHAR) = 'G00Gl3';
 
 --command 5 - change any password
+UPDATE account_info
+SET account_password = AES_ENCRYPT('newPasswordCommand5', @key_str, @init_vector)
+WHERE CAST(AES_DECRYPT(account_password, @key_str, @init_vector) AS CHAR) = 'G00Gl3';
 
 --command 6 - remove a tuple based on a url
 
