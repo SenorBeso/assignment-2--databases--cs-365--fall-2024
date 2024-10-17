@@ -47,7 +47,7 @@ INSERT INTO website (website, site_url) VALUES
 ("UHart Blackboard", "https://blackboard.hartford.edu/ultra/course");
 
 INSERT INTO account_info (account_username, account_password, comment, account_creation) VALUES
-("aidenk7", AES_ENCRYPT("G00Gl3", @key_str, @init_vector), "My School Account", '2008-07-24 00:00:00'),
+("aidenk7", AES_ENCRYPT("G00Gl3", @key_str, @init_vector), "My Google Account", '2008-07-24 00:00:00'),
 ("kissAiden", AES_ENCRYPT("RGBisOverated", @key_str, @init_vector), "My Steam gaming account", '2010-05-24 00:00:00'),
 ("aidenk7", AES_ENCRYPT("metalHead4Life", @key_str, @init_vector), "My music account", '2017-01-12 00:00:00'),
 ("AK77", AES_ENCRYPT("imswitchingtolinux", @key_str, @init_vector), "My microsoft account", '2008-12-12 00:00:00'),
