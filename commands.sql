@@ -43,7 +43,7 @@ WHERE
 --command 4 - change a url, matching password
 UPDATE website
 JOIN account_info ON website.id = account_info.id
-SET website.site_url = 'https://www.command4-google-url.com'
+SET website.site_url = 'https://www.command4-newgoogle-url.com'
 WHERE CAST(AES_DECRYPT(account_info.account_password, @key_str, @init_vector) AS CHAR) = 'G00Gl3';
 
 --command 5 - change any password
